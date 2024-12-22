@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class TestBehaviourScript : MonoBehaviour
 {
     //public GameObject test;
-    public int x = 0;
+    public int x = 999;
     public Text TXTField;
     private bool fl1 = true;
+        private bool fl2 = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +19,20 @@ public class TestBehaviourScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        x++;
+        //x++;
         //Debug.Log(x);
         TXTField.text = x.ToString();
-        switch(x)
+        /*switch(x)
         {
             case 100:
                 //Destroy(test);
                 //this.gameObject.SetActive(false);
+                break;
+        }*/
+        switch(fl2)
+        {
+            case true:
+                x--;
                 break;
         }
     }
@@ -36,6 +43,10 @@ public class TestBehaviourScript : MonoBehaviour
         
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        fl2 = true;
+    }
     public void ClickBut()
     {
         switch(fl1)
